@@ -1,0 +1,396 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
+/* CSS Variables */
+:root {
+  --tech-black: #000000;
+  --tech-white: #ffffff;
+  --tech-blue: #00c8ff;
+  --tech-purple: #6e00ff;
+  --tech-pink: #ff00c8;
+  --tech-gradient: linear-gradient(135deg, var(--tech-blue), var(--tech-purple), var(--tech-pink));
+  --shadow-neon: 0 0 15px rgba(0, 200, 255, 0.5);
+  --transition-smooth: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--tech-black);
+  color: var(--tech-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header Styles */
+.header {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--shadow-neon);
+}
+
+.header h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  background: var(--tech-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+}
+
+.header .pull-right {
+  float: right;
+  width: 40px;
+  filter: invert(1) drop-shadow(0 0 5px rgba(0, 200, 255, 0.7));
+  transition: var(--transition-smooth);
+}
+
+.header .pull-right:hover {
+  transform: scale(1.1) rotate(360deg);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.menu li {
+  margin: 0 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu a {
+  color: var(--tech-white);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+.menu a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--tech-gradient);
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: var(--transition-smooth);
+}
+
+.menu a:hover::before {
+  transform: translateX(0);
+}
+
+/* Content Styles */
+.legenddiv, .legacydiv, .impactdiv {
+  margin: 8rem 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-neon);
+  position: relative;
+  z-index: 1;
+}
+
+.legenddiv::before, .legacydiv::before, .impactdiv::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--tech-gradient);
+  opacity: 0.1;
+  z-index: -1;
+  transition: var(--transition-smooth);
+}
+
+.legenddiv:hover::before, .legacydiv:hover::before, .impactdiv:hover::before {
+  opacity: 0.2;
+  filter: blur(20px);
+}
+
+.span {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%) brightness(50%);
+  transition: var(--transition-smooth);
+}
+
+.span:hover {
+  filter: grayscale(0%) brightness(100%);
+}
+
+.text-center {
+  text-align: center;
+  padding: 2rem;
+}
+
+.cite {
+  font-style: italic;
+  color: var(--tech-blue);
+  display: block;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+}
+
+h2, h3 {
+  background: var(--tech-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 15px rgba(0, 200, 255, 0.7);
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: var(--tech-gradient);
+  width: 50%;
+  margin: 2rem auto;
+  box-shadow: var(--shadow-neon);
+}
+
+.inventions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.inventions a {
+  color: var(--tech-white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  display: block;
+  padding: 1rem;
+  background: rgba(0, 200, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--shadow-neon);
+  position: relative;
+  overflow: hidden;
+}
+
+.inventions a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--tech-gradient);
+  z-index: -1;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.inventions a:hover::before {
+  opacity: 1;
+}
+
+.inventions a:hover {
+  color: var(--tech-black);
+  transform: translateY(-10px);
+}
+
+.highlights {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 20px;
+  margin-top: 3rem;
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.2);
+}
+
+.highlights ul {
+  list-style: none;
+}
+
+.highlights li {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: var(--shadow-neon);
+  transition: var(--transition-smooth);
+}
+
+.highlights li:hover {
+  transform: scale(1.05);
+  background: rgba(0, 200, 255, 0.1);
+}
+
+/* Parallax Scrolling */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.legenddiv { background-image: url('apple-ii.jpg'); }
+.legacydiv { background-image: url('imac-g3.jpg'); }
+.impactdiv { background-image: url('iphone-launch.jpg'); }
+
+/* Back to Top Button */
+#back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#back-top a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: var(--tech-gradient);
+  color: var(--tech-black);
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: var(--shadow-neon);
+  transition: var(--transition-smooth);
+}
+
+#back-top a:hover {
+  transform: scale(1.1) rotate(360deg);
+}
+
+#back-top span {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid currentColor;
+  margin: 19px auto 0;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--tech-black);
+  color: var(--tech-white);
+  text-align: center;
+  padding: 1rem;
+  box-shadow: var(--shadow-neon);
+}
+
+.footer a {
+  color: var(--tech-blue);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.footer a:hover {
+  color: var(--tech-pink);
+  text-shadow: 0 0 10px rgba(255, 0, 200, 0.7);
+}
+
+/* Responsive Design */
+@media screen and (min-width: 768px) {
+  .container-fluid {
+    padding: 0 2rem;
+  }
+
+  .legenddiv, .legacydiv, .impactdiv {
+    display: flex;
+    align-items: center;
+  }
+
+  .span {
+    width: 50%;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+
+  .text-center {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container-fluid {
+    padding: 0 3rem;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Advanced Animations */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-5px, 5px); filter: hue-rotate(90deg); }
+  40% { transform: translate(-5px, -5px); filter: hue-rotate(180deg); }
+  60% { transform: translate(5px, 5px); filter: hue-rotate(270deg); }
+  80% { transform: translate(5px, -5px); filter: hue-rotate(360deg); }
+  100% { transform: translate(0); filter: hue-rotate(0deg); }
+}
+
+.header h1:hover {
+  animation: glitch 0.5s infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 15px var(--tech-blue); }
+  50% { box-shadow: 0 0 30px var(--tech-purple); }
+}
+
+.inventions a, .highlights li {
+  animation: neonPulse 3s infinite;
+}
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -100%; }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: scanlines 1s linear infinite;
+  opacity: 0.1;
+}
