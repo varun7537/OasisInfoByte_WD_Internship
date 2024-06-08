@@ -1,0 +1,135 @@
+/* static/css/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg-color-1: #141e30;
+  --bg-color-2: #243b55;
+  --text-color: #ecf0f1;
+  --link-color-1: #3498db;
+  --link-color-2: #2ecc71;
+  --link-hover-1: #2980b9;
+  --link-hover-2: #27ae60;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2));
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, var(--link-color-1), var(--link-color-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 15px rgba(52, 152, 219, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 30px rgba(46, 204, 113, 0.8));
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+a {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  padding: 15px 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+a:nth-child(1) {
+  color: var(--link-color-1);
+}
+
+a:nth-child(2) {
+  color: var(--link-color-2);
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+a:nth-child(1)::before {
+  background-color: var(--link-color-1);
+}
+
+a:nth-child(2)::before {
+  background-color: var(--link-color-2);
+}
+
+a:hover {
+  color: var(--text-color);
+}
+
+a:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+a:active {
+  transform: scale(0.95);
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    margin-bottom: 2rem;
+  }
+  
+  .links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  a {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    padding: 12px 24px;
+  }
+}

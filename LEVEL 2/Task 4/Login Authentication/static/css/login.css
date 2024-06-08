@@ -1,0 +1,199 @@
+/* static/css/login.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg-color-1: #141e30;
+  --bg-color-2: #243b55;
+  --text-color: #ecf0f1;
+  --form-bg: rgba(255, 255, 255, 0.07);
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --input-focus: rgba(255, 255, 255, 0.2);
+  --btn-color: #3498db;
+  --btn-hover: #2980b9;
+  --link-color: #2ecc71;
+  --link-hover: #27ae60;
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2));
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #3498db, #4a90e2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); text-shadow: 0 0 30px rgba(52, 152, 219, 0.8); }
+  100% { transform: scale(1); }
+}
+
+form {
+  background: var(--form-bg);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  animation: formFloat 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes formFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+label {
+  display: block;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  background: var(--input-bg);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input:focus {
+  background: var(--input-focus);
+  outline: none;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.7);
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: var(--btn-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: var(--btn-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: btnRipple 0.6s ease-out infinite;
+}
+
+@keyframes btnRipple {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(50); opacity: 0; }
+}
+
+a {
+  display: block;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  transition: color 0.3s, transform 0.2s;
+}
+
+a:hover {
+  color: var(--link-hover);
+  transform: translateX(5px);
+}
+
+ul {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  animation: messageSlide 0.5s ease-out;
+}
+
+@keyframes messageSlide {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+li {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+li.error {
+  background: var(--error-color);
+  color: var(--text-color);
+}
+
+li.success {
+  background: var(--success-color);
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  
+  form {
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+}
