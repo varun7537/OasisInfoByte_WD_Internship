@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== CSS LINK ==========-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--========== FONT AWESOME LINK ==========-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>To Do List Web App</title>
+</head>
+<body>
+    <center><h1>To Do List</h1>
+    <br>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add Your Task</h2>
+            <form action="" id="task-form">
+                <div>
+                    <label for="task-name-heading">Task Name</label>
+                    <input type="text" name="task-name" id="task-name" placeholder="Enter Your Task..." required> 
+                </div>
+                <div>
+                    <label for="task-status-heading">Status of the Task</label>
+                    <select name="task-status" id="task-status">
+                        <option value="planning">Planning</option>
+                        <option value="approved">Approved</option>
+                        <option value="pending">Pending</option>
+                        <option value="review">Review</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="task-priority-heading">Priority</label>
+                    <select name="task-priority" id="task-priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="task-value-heading">Task Value</label>
+                    <select id="task-value" name="task-value">
+                        <option value="Easy / Low Value">Easy / Low Value</option>
+                        <option value="Easy / High Value">Easy / High Value</option>
+                        <option value="Hard / Low Value">Hard / Low Value</option>
+                        <option value="Hard / High Value">Hard / High Value</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="task-notes">Description / Additional Notes:</label>
+                    <textarea id="task-notes" name="task-notes"></textarea>
+                </div>
+                <button type="submit"><i class="fa-solid fa-plus"></i> Add Task</button>
+            </form>
+        </div>
+    </div></center>
+
+    <div class="tables-container">
+        <h2>Pending Tasks</h2>
+        <table id="pending-tasks-table">
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Task Status</th>
+                    <th>Task Priority</th>
+                    <th>Value Of Task</th>
+                    <th>Task Description / Additional Notes</th>
+                    <th>Task Label</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Pending tasks will be appended here -->
+                <tr>
+                    <td>Sample Task</td>
+                    <td>Pending</td>
+                    <td>High</td>
+                    <td>Hard / High Value</td>
+                    <td>Sample notes...</td>
+                    <td class="pending-label"><i class="fa-solid fa-stopwatch"></i></td> 
+                    <td class="complete-label"><i class="fa-solid fa-circle-check"></i></td>
+                    <td>
+                        <button type="button" class="update-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button type="button" class="complete-btn"><i class="fa-solid fa-circle-check"></i></button>
+                        <button type="button" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Complete Tasks</h2>
+        <table id="complete-tasks-table">
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Task Status</th>
+                    <th>Task Priority</th>
+                    <th>Value Of Task</th>
+                    <th>Task Description / Additional Notes</th>
+                    <th>Task Label</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Completed tasks will be appended here -->
+                <tr>
+                    <td>Completed Task</td>
+                    <td>Complete</td>
+                    <td>Medium</td>
+                    <td>Easy / High Value</td>
+                    <td>Completed notes...</td>
+                    <td class="complete-label" style="margin-top: 1.1rem;"><i class="fa-solid fa-circle-check"></i></td>
+                    <td>
+                        <button type="button" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--========== JAVASCRIPT LINK ==========-->
+    <script src="script.js"></script>
+</body>
+</html>
